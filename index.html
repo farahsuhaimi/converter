@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CONVERTER CALCULATOR GROUP 8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #E5BEEC;
+        }
+
+        #header {
+            position:fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: auto;
+        }
+
+            #header .header {
+                min-height: 8vh;
+                background-color: #5C469C;
+            }
+
+        .header .navbar {
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 5px 5px;
+        }
+
+        .navbar nav ul li{
+            list-style: none;
+            display: inline-block;
+        }
+
+        .navbar nav ul li a{
+            padding: 0px 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            transition: 0.5s ease;
+        }
+
+        .navbar ul li:hover a{
+            color: red;
+            text-shadow: 0 0 5px black;
+        }
+
+        .menu-icon{
+            width: 28px;
+            margin-right: 20px;
+            display: none;
+        }
+
+        /*----Navbar-----*/
+
+        /*----Form-----*/
+        .converter{
+            background: #2A2F4F;
+            padding: 20px;
+            border-radius: 30px;
+            margin-top: 10px;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+        }
+
+        form{
+            min-width: 30vw;
+            margin: 10px;
+            padding: 10px 10px;
+            border-radius: 5px;
+        }
+
+        .input-block label {
+            font-size: 14px;
+            color: #E5BEEC
+        }
+
+        .input-block input, .input-block select{
+            display: block;
+            width: 100%;
+            height: 50px;
+            padding: 6px 12px;
+            margin: 5px 0px 10px 0px;
+            padding: 0px 15px 0px 15px;
+            font-size: 16px;
+            line-height: 40px;
+            background: #E5BEEC;
+            border: 1px solid;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn{
+            margin-top: 10px;
+            width: 100%;
+            height: 5vh;
+            border-radius: 5px;
+            border: 0px;
+            cursor: pointer;
+            background-color: #5C469C;
+            font-size: 18px;
+            font-weight: 700;
+            border: 1px solid;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn:hover{
+            background-color: #D4ADFC;
+        }
+
+            .btn:active {
+                background-color: rgb(226, 227, 43, 0.84);
+                box-shadow: 2px 5px black;
+                transform: translateY(3px);
+            }
+
+        .output {
+            width: 100%;
+            height: 80px;
+            background-color: #FDE2F3;
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            border: 1px solid;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
+        }
+
+        .output h2 {
+            padding: 13px 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 5px 5px;
+            width: 100%;
+            background-color: #5C469C;
+            color: white;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Header-->
+    <section id="header">
+        <div class="header container">
+            <div class="navbar">
+                <nav>
+                    <ul id="menuitems">
+                        <li><a href="index.html">CONVERTER</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </section>
+    <!--End Of Header-->
+    <div class="container">
+        <div class="title"><br>
+            <h1>CONVERTER CALCULATOR</h1>
+        </div>
+        <div class="converter">
+            <form>
+                <div class="input-block">
+                    <label for="base">From</label>
+                    <select id="base">
+                        <option value="2" selected="selected">Binary</option>
+                        <option value="10">Decimal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-block">
+                    <label for="Baseoutput"> To</label>
+                    <select id="Baseoutput">
+                        <option value="2">Binary</option>
+                        <option value="10" selected="selected">Decimal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="input-block">
+                    <label for="inputNum">Input</label>
+                    <input type="text" id="inputNum" />
+                </div>
+                <button type="button" class="btn" onclick="convert()">CONVERT</button>
+                <div class="output">
+                    <h2 id="output" class="h2"></h2>
+                </div>
+            </form>
+        </div>
+    </div><br>
+    <div class="footer">
+        <p class="copyright">© COPYRIGHTED ITT588 2023 GROUP 8. ALL RIGHT RESERVED</p>
+    </div>
+
+
+    <script>
+        function convert() {
+            var inputNum = document.getElementById("inputNum").value;
+            var base = document.getElementById("base").value;
+            var Baseoutput = document.getElementById("Baseoutput").value;
+            var outputNum = parseInt(inputNum, base).toString(Baseoutput);
+            document.getElementById("output").innerHTML = outputNum;
+        }
+    </script>
+</body>
+</html>
